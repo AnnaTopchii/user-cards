@@ -1,62 +1,39 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-// import { getTrending } from "services/api";
-
-const users = [
-  {
-    user: "Ivan",
-    tweets: 777,
-    followers: 100500,
-    avatar: "url.jpg",
-    id: 1,
-  },
-  {
-    user: "Kate",
-    tweets: 100,
-    followers: 500,
-    avatar: "url.jpg",
-    id: 2,
-  },
-  {
-    user: "Tetyana",
-    tweets: 300,
-    followers: 222,
-    avatar: "url.jpg",
-    id: 3,
-  },
-];
+import { fetchTotalUsers } from "../services/api";
+import { HomeContainer, Title, Button, Text } from "../global.styled";
+import { Loader } from "../components/Loader";
 
 const Home = () => {
-  //   const [users, setUsers] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [totalUsers, setTotalUsers] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   // Simulate data fetching delay
-  //   const delay = setTimeout(() => {
-  //     setIsLoading(false);
-  //   }, 2000);
+  useEffect(() => {
+    setIsLoading(true);
+    fetchTotalUsers("All")
+      .then((response) => {
+        setTotalUsers(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(setIsLoading(false));
+  }, []);
 
-  //   return () => clearTimeout(delay);
-  // }, []);
-
-  //   useEffect(() => {
-  //     setIsLoading(true);
-  //     getTrending()
-  //       .then((response) => {
-  //         setUsers(response.results);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error);
-  //       })
-  //       .finally(setIsLoading(false));
-  //   }, []);
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
-    <div>
-      <h1>Hello!</h1>
-      <p>We have {users.length} users. Do you want to see them?</p>
-      <Link to="/tweets"> Lets's start!</Link>
-    </div>
+    <HomeContainer>
+      <Title>Hello!</Title>
+      {totalUsers === 0 ? (
+        <Text>Sorry, we have no users</Text>
+      ) : (
+        <Text>We have {totalUsers} users. Do you want to see them?</Text>
+      )}
+
+      <Button to="/tweets"> Lets's start!</Button>
+    </HomeContainer>
   );
 };
 

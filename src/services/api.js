@@ -1,38 +1,40 @@
 import axios from "axios";
 
-// axios.defaults.baseURL = "https://api.themoviedb.org/3";
-// const API_KEY = "0133cbd46d7aed15aba1a7c05914842d";
-// const TRENDING = "trending/movie/day";
+axios.defaults.baseURL = "https://644820087bb84f5a3e5314c6.mockapi.io";
 
-// export const getTrending = async () => {
-//   const response = await axios.get(`${TRENDING}?api_key=${API_KEY}`);
-//   return response.data;
-// };
+export const fetchUsers = async (page = 1, filter) => {
+  let url;
 
-// export const searchMovies = async (query) => {
-//   const response = await axios.get(
-//     `search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
-//   );
-//   return response.data;
-// };
+  if (filter === "Follow") {
+    url = `/users?following=false&page=${page}&limit=3`;
+  } else if (filter === "Following") {
+    url = `/users?following=true&page=${page}&limit=3`;
+  } else if (filter === "All") {
+    url = `/users?page=${page}&limit=3`;
+  }
 
-// export const getMovieDetails = async (id) => {
-//   const response = await axios.get(
-//     `movie/${id}?api_key=${API_KEY}&language=en-US`
-//   );
-//   return response.data;
-// };
+  const response = await axios.get(url);
+  console.log(response.data);
+  return response.data;
+};
 
-// export const getMovieCredits = async (id) => {
-//   const response = await axios.get(
-//     `movie/${id}/credits?api_key=${API_KEY}&language=en-US`
-//   );
-//   return response.data;
-// };
+export const fetchTotalUsers = async (filter) => {
+  let url;
 
-// export const getReviews = async (id) => {
-//   const response = await axios.get(
-//     `movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`
-//   );
-//   return response.data;
-// };
+  if (filter === "Follow") {
+    url = `/users?following=false`;
+  } else if (filter === "Following") {
+    url = `/users?following=true`;
+  } else if (filter === "All") {
+    url = `/users`;
+  }
+
+  const response = await axios.get(url);
+  console.log(response.data.length);
+  return response.data.length;
+};
+
+export const updateUser = async (id, following, followers) => {
+  const response = await axios.put(`/users/${id}`, { following, followers });
+  return response.data;
+};
