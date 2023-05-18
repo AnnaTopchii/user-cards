@@ -6,6 +6,8 @@ export const List = styled.ul`
   flex-wrap: wrap;
   gap: 50px;
   list-style: none;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const Card = styled.li`
@@ -114,11 +116,10 @@ export const Text = styled.p`
 
 export const LoadMore = styled.button`
   margin-top: 36px;
-  padding: 20px 40px;
+  padding: 20px 60px;
   font-weight: 600;
   font-size: 24px;
   color: #373737;
-  padding: 14px;
   text-align: center;
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -127,6 +128,7 @@ export const LoadMore = styled.button`
   border: 10px solid #471ca9;
   text-decoration: none;
   text-transform: uppercase;
+  align-self: center;
 `;
 
 export const Select = styled.select`

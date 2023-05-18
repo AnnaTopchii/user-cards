@@ -6,7 +6,7 @@ export const HomeContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 800px;
+  min-height: 600px;
   padding: 40px;
   background-size: cover;
   background-image: url("https://wallpapercave.com/wp/wp2557274.jpg");
@@ -16,7 +16,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 40px;
   margin-left: auto;
   margin-right: auto;
@@ -24,12 +23,11 @@ export const Container = styled.div`
 
 export const SmallContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;
 
 export const Title = styled.h1`
+  margin-bottom: 0px;
+  margin-top: 0px;
   text-transform: uppercase;
   font-weight: 500;
   font-size: 36px;
@@ -67,5 +65,5 @@ export const NavButton = styled(Link)`
   border-radius: 10px;
   border: 3px solid #471ca9;
   text-decoration: none;
-  align-self: flex-start;
+  margin-right: 500px;
 `;

@@ -9,12 +9,11 @@ const TweetsPage = ({ isLoading }) => {
 
   return (
     <Container>
-      <NavButton to={backLinkLocationRef.current}> Back </NavButton>
-
       <SmallContainer>
+        <NavButton to={backLinkLocationRef.current}> Back </NavButton>
         <Title>Users</Title>
-        <Tweets />
       </SmallContainer>
+      <Tweets />
     </Container>
   );
 };
