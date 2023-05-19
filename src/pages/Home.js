@@ -32,7 +32,7 @@ const Home = () => {
         <Text>We have {totalUsers} users. Do you want to see them?</Text>
       )}
 
-      <Button to="/tweets"> Lets's start!</Button>
+      <Button to="/tweets"> Let's start!</Button>
     </HomeContainer>
   );
 };
