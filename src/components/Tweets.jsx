@@ -137,7 +137,7 @@ export const Tweets = () => {
         <Option value="Following">Following</Option>
       </Select>
       {users.length === 0 ? (
-        <Text>Sorry, we have no users</Text>
+        <Text>Sorry, we have no users here</Text>
       ) : (
         <List>
           {users.map(({ id, tweets, followers, avatar, following }) => (
