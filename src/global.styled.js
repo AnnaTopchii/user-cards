@@ -53,6 +53,10 @@ export const Button = styled(Link)`
   outline: 3px solid #373737;
   border: 10px solid #471ca9;
   text-decoration: none;
+  :hover,
+  :focus {
+    background-color: #ebd8ff;
+  }
 `;
 
 export const NavButton = styled(Link)`
@@ -66,4 +70,8 @@ export const NavButton = styled(Link)`
   border: 3px solid #471ca9;
   text-decoration: none;
   margin-right: 500px;
+  :hover,
+  :focus {
+    background-color: #5cd3a8;
+  }
 `;
