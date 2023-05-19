@@ -41,7 +41,7 @@ export const Tweets = () => {
   useEffect(() => {
     setCurrentPage(1);
     setIsLoading(true);
-    fetchUsers(currentPage, filter)
+    fetchUsers(1, filter)
       .then((response) => {
         setUsers(response);
       })
