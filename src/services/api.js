@@ -14,7 +14,6 @@ export const fetchUsers = async (page = 1, filter) => {
   }
 
   const response = await axios.get(url);
-  console.log(response.data);
   return response.data;
 };
 
@@ -30,7 +29,6 @@ export const fetchTotalUsers = async (filter) => {
   }
 
   const response = await axios.get(url);
-  console.log(response.data.length);
   return response.data.length;
 };
 
